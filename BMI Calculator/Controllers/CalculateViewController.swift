@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateViewController: UIViewController {
 
 
     @IBOutlet weak var heightLabel: UILabel!
@@ -34,13 +34,21 @@ class ViewController: UIViewController {
         let BMI = weight / pow(height, 2)
         print(BMI)
         
-        
-        let secondVC = SecondViewController()
-        secondVC.bmiValue = String(format: "%.1f", BMI)
-        
-        self.present(secondVC, animated: true, completion: nil)
-        
-        
+        self.performSegue(withIdentifier: "goToResult", sender: self)
+    
     }
+    
+    
+     //MARK: - Navigation
+
+//     In a storyboard-based application, you will often want to do a little preparation before navigation
+  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult"{
+            let destinationVC = segue.destination as! ResultsViewController
+            destinationVC.bmiValue = "0.0"
+        }
+    }
+
 }
 

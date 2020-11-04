@@ -44,10 +44,16 @@ class CalculateViewController: UIViewController {
 
 //     In a storyboard-based application, you will often want to do a little preparation before navigation
   
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult"{
             let destinationVC = segue.destination as! ResultsViewController
+            
             destinationVC.bmiValue = calculatorBrain.getBMIValue()
+           destinationVC.advice = calculatorBrain.getAdvice()
+            destinationVC.color = calculatorBrain.getColor()
         }
     }
 

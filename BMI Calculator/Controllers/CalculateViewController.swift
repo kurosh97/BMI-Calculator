@@ -2,8 +2,6 @@ import UIKit
 
 class CalculateViewController: UIViewController {
     
-//    var bmiValue = "0.0"
-
     var calculatorBrain = CalculatorBrain()
     
     
